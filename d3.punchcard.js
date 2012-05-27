@@ -2,7 +2,7 @@ var pane_left = 120
   , pane_right = 800
   , width = pane_left + pane_right
   , height = 520
-  , margin = 10,
+  , margin = 10
   , i
   , j
   , tx
