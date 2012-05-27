@@ -5,7 +5,7 @@ Inspired by GitHub's punchcard, I created one to track information in my applica
 
 #### Footnote
 
-Tracking data is important in apps, and while there is great tracking libraries and products, sometimes it's fun to do it yourself. If you wan't to track registrations for your app over the last week, you can do the following via Ruby on Rails and dump the data to the JavaScript file.
+While there is great tracking libraries and products, sometimes it's fun to do it yourself. If you wan't to track registrations for your app over the last week, you can do the following via Ruby on Rails and dump the data to this JavaScript file.
 
 ```ruby
 week = Time.now.beginning_of_week - 1.week
@@ -21,9 +21,8 @@ data = days.map do |day|
     select('hour(created_at) as hour, count(*) as count').
     group('hour(created_at)').
     order('hour(created_at)').
-    map { |user| by_hour[user.hour.to_i] = user.count.to_i }
+    map { |user| by_hour[user.hour] = user.count }
 
   by_hour
 end
-
 ```
