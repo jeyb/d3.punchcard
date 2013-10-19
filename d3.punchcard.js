@@ -117,7 +117,11 @@ for (i = 0; i < data.length; i++) {
       style("fill", "#888").
       on("mouseover", mover).
       on("mouseout", mout).
-		  on("mousemove", function(){return tooltip.style("top",(d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");}).
+      on("mousemove", function() {
+       return tooltip.
+         style("top", (d3.event.pageY - 10) + "px").
+         style("left", (d3.event.pageX + 10) + "px");
+      }).
       attr("r", function(d) { return d / max * 14; }).
       attr("transform", function() {
           tx = pane_left - 2 * margin + x(j);
@@ -126,12 +130,12 @@ for (i = 0; i < data.length; i++) {
         });
   }
   function mover(d) {
-		tooltip = d3.select("body")
-			.append("div")
-			.style("position", "absolute")
-			.style("z-index", "99999")
-			.attr("class", "vis-tool-tip")
-			.text(d);
+    tooltip = d3.select("body")
+     .append("div")
+     .style("position", "absolute")
+     .style("z-index", "99999")
+     .attr("class", "vis-tool-tip")
+     .text(d);
   }
 
   function mout(d) {
